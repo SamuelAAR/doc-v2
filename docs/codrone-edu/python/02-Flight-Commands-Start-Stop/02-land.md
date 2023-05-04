@@ -21,15 +21,20 @@ None
 None
 
 ##### Example Code
+This code will show you how the drone.land() will reset your flight motion variables, by setting your throttle to a certain value then testing it before and after landing.
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
 drone.pair()
+
 drone.takeoff()
-drone.hover(3) # include a hover() or time.sleep() to prevent land() from skipping
+drone.set_throttle(50)
+drone.move(1)
 drone.land()
-drone.close()
+
+drone.takeoff()
+drone.move(1)
+drone.land()
 ```
