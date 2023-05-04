@@ -22,7 +22,7 @@ None
 None
 
 ##### Example Code
-This code will make your drone shoot up into the ceiling (A classic error) and then emergency stop. Don't forget to catch it!
+This code will make your drone hover for a second showing that after only a second you can emergency stop.
 ###### Python
 ```python
 #Python code
@@ -31,7 +31,7 @@ drone = Drone()
 drone.pair()
 
 drone.takeoff()
-drone.set_throttle(100)
-drone.move(2)
+drone.hover(1)
+
 drone.emergency_stop()
 ```
