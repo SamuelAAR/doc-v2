@@ -24,6 +24,7 @@ You can set the **roll** and **pitch** trim of the drone in case your drone is d
 None
 
 ##### Example Code
+This code shows that you must have a time.sleep(1) after setting your trim, and it should show you what drift looks like in a drone as it hovers.
 ###### Python
 ```python
 #Python code
@@ -33,11 +34,19 @@ import time
 drone = Drone()
 drone.pair()
 
-drone.set_trim(-5, 0) # example: drone is drifting right, so trim to roll left a little bit
-
+drone.set_trim(-10, 0)   # example: drone is drifting right, so trim to roll left a little bit
 time.sleep(1)       # Add a time.sleep(1) before takeoff if you're planning to set the trim before takeoff
+
 drone.takeoff()
-drone.hover(3)
+drone.hover(2)
 drone.land()
-drone.close()
+
+time.sleep(1)
+drone.reset_trim()
+drone.set_trim(0, 10)
+time.sleep(1)
+
+drone.takeoff()
+drone.hover(2)
+drone.land()
 ```
