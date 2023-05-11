@@ -21,16 +21,21 @@ None
 None
 
 ##### Example Code
+This code will make the drone take off and get what's called its flight state. If it is successfully flying, it will say "flight". Once it lands it will say, "Ready" or "Landing".
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
 drone.pair()
+
 drone.takeoff()
-	
+
+drone.get_flight_state()
+print(drone.get_flight_state(), "This means I'm flying!")
 drone.hover(3)
 drone.land()
-drone.close()
+
+drone.get_flight_state()
+print(drone.get_flight_state(), "Now I'm read to take off again!")
 ```
