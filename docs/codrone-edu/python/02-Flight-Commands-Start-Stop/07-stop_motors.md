@@ -22,15 +22,17 @@ None
 None
 
 ##### Example Code
+This code takes off and moves forward before hovering because it is recommended to hover before a stop motor command. This code also shows no other command can be read after the stop motor.
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
 drone.pair()
+
 drone.takeoff()
-drone.hover(3) #Recommended to have a hover() or time.sleep(1) before landing
+drone.go(0, 20, 0, 0, 2)
+drone.hover(3)  # Recommended to have a hover() or time.sleep(1) before landing
 drone.stop_motors()
-drone.close()
+drone.go(0, 20, 0, 0, 2)
 ```
