@@ -22,7 +22,7 @@ None
 None
 
 ##### Example Code
-This code will make your drone hover for a second showing that after only a second you can emergency stop.
+This code will make your drone hover for a second showing that after only a second you can emergency stop and then take off right after.
 ###### Python
 ```python
 #Python code
@@ -31,7 +31,12 @@ drone = Drone()
 drone.pair()
 
 drone.takeoff()
-drone.hover(1)
+drone.hover(2)
 
 drone.emergency_stop()
+time.sleep(1)
+
+drone.takeoff()
+drone.go(0, 40, 0, 0, 1)
+drone.land()
 ```
