@@ -20,17 +20,21 @@ None
 None
 
 ##### Example Code
+This code will generate separate random numbers for both pitch and roll and then print those two values.
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
+import random
+random_number = random.randint(10, 100)
 drone.pair()
+
 drone.takeoff()
-drone.set_pitch(50)
-drone.set_roll(50)
-drone.print_move_values() # will print pitch and roll at 50 and throttle and yaw at 0
+drone.set_pitch(random_number)
+random_number = random.randint(10, 100)
+drone.set_roll(random_number)
+drone.print_move_values()  # will print pitch and roll at the random
+# number and throttle and yaw at 0
 drone.land()
-drone.close()
 ```
