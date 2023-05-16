@@ -21,17 +21,22 @@ The reset_move command will reset the values of roll, pitch, yaw, and throttle t
 None
 
 ##### Example Code
+This code will set pitch to 50 and then reset that pitch and allow you to use another movement without having to manually set pitch to 0.
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
 drone.pair()
+
 drone.takeoff()
 drone.set_pitch(50)
+drone.move(2)
+drone.reset_move()  # reset the pitch to 0.
+
+time.sleep(0.1)    # need a 0.1 second break between a reset move and 
+# your next action
 drone.set_roll(50)
-drone.reset_move() # reset the pitch and roll to 0.
+drone.move(2)
 drone.land()
-drone.close()
 ```
