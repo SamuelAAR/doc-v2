@@ -18,7 +18,7 @@ The range of front sensor is from 0mm-1000mm (0cm-100cm)
 ```keep_distance(timeout, distance)```
 
 ##### Parameters
-**timeout**: timeout is an optional paramaeter that is the duration in seconds that the function will run. The default value is 2 <br />
+**timeout**: timeout is an optional parameter that is the duration in seconds that the function will run. The default value is 2 <br />
 **distance**: distance is an optional parameter that is the distance in millimeters the drone will stop and maintin distance in front of an object. The default value is 500
 
 ##### Returns
@@ -26,16 +26,20 @@ The range of front sensor is from 0mm-1000mm (0cm-100cm)
 None
 
 ##### Example Code
+This code will make your drone go forward then hover before keeping its distance from the closest object. You can even try putting your hand in front of it and see what happens!
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
 drone.pair()
+
 drone.takeoff()
-# fly forward until a wall is found. maintin a distance of 600mm (60cm) from an object once detected. run this loop for 10 seconds.
-drone.keep_distance(10, 600)
+drone.go(0, 50, 0, 0, 2)
+drone.hover(1)
+# fly forward until a wall is found. maintain a distance
+# of 600mm (60cm) from an object once detected.
+# run this loop for 10 seconds.
+drone.keep_distance(15, 600)
 drone.land()
-drone.close()
 ```
