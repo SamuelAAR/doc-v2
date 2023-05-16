@@ -25,16 +25,17 @@ Flies the drone in the shape of a circle.
 None
 
 ##### Example Code
+This code makes the drone circle to the right at a speed of 100 then circle back around to the left at a speed of 50.
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
 drone.pair()
+
 drone.takeoff()
-# default circle parameters (75, 1)
-drone.circle()
+# default circle parameters; drone.circle(75, 1)
+drone.circle(100, 1)
+drone.circle(50, -1)
 drone.land()
-drone.close()
 ```
