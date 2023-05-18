@@ -23,16 +23,18 @@ Send roll, pitch, yaw, and throttle values to the drone.
 None
 
 ##### Example Code
+This code will make the drone go forward for a second then move to the side for a second. This shows that you don't need a move command to make the drone go.
 ###### Python
 ```python
 #Python code
 from codrone_edu.drone import *
-
 drone = Drone()
 drone.pair()
+
 drone.takeoff()
-drone.sendControl(0, 30, 0, 0) # setting pitch to 30
-time.sleep(1) # wait for 1 second while the drone is moving forward
+drone.sendControl(0, 50, 0, 0)  # setting pitch to 30
+time.sleep(1)   # wait for 1 second while the drone is moving forward
+drone.sendControl(50, 0, 0, 0)
+time.sleep(1)
 drone.land()
-drone.close()
 ```
